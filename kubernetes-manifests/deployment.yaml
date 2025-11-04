@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: netflix-clone-deployment
+  labels:
+    app: netflix-clone
+spec:
+  replicas: 2 # You can adjust the number of replicas
+  selector:
+    matchLabels:
+      app: netflix-clone
+  template:
+    metadata:
+      labels:
+        app: netflix-clone
+    spec:
+      containers:
+      - name: netflix-clone
+        image: YOUR_DOCKERHUB_USERNAME/netflix-clone:latest # This will be replaced by Jenkins
+        ports:
+        - containerPort: 80
+        env:
+        - name: TMDB_API_KEY
+          value: "YOUR_TMDB_API_KEY" # Jenkins will replace this during build, but good to have a placeholder
