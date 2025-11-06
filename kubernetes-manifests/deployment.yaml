@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: netflix-clone
-        image: YOUR_DOCKERHUB_USERNAME/netflix-clone:latest # This will be replaced by Jenkins
+        image: shubhashishrai/netflix-clone:latest # This will be replaced by Jenkins
         ports:
         - containerPort: 80
         env:
